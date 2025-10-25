@@ -4,7 +4,7 @@ import threading
 class BoundsControls:
     def __init__(self):
         self.mainthread = None
-        self.lower_bound = np.array([0,0,0])
+        self.lower_bound = np.array([160,15,229])
         self.higher_bound = np.array([179,255,255])
         self.window = None
 

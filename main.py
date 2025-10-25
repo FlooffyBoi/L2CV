@@ -24,7 +24,16 @@ while cap.isOpened():
     # Задача 2
     frame_thresholded = cv2.inRange(frame_hsv,lower_bound,higher_bound)
 
-    cv2.imshow("Red mask", frame_thresholded)
+    # Задача 3
+    circle_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
+    # Открытие
+    frame_opened = cv2.erode(frame_thresholded,circle_kernel)
+    frame_opened = cv2.dilate(frame_opened,circle_kernel)
+    # Закрытие
+    frame_closed = cv2.dilate(frame_opened,circle_kernel)
+    frame_closed = cv2.erode(frame_closed,circle_kernel)   
+    
+    cv2.imshow("Red mask", frame_opened)
     cv2.imshow("Camera", frame)
     if cv2.waitKey(1) == ord('q'):
         break
