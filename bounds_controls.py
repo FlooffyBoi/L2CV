@@ -6,7 +6,12 @@ class BoundsControls:
         self.mainthread = None
         self.lower_bound = np.array([160,15,229])
         self.higher_bound = np.array([179,255,255])
+        # Дом, кухня: [160,15,229]; [179,255,255]
+        # 101 кабинет: [0,100,176]; [109,255,255]
         self.window = None
+
+    
+
 
     def windowStart(self):
         self.window = tk.Tk()

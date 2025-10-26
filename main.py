@@ -33,9 +33,22 @@ while cap.isOpened():
     frame_closed = cv2.dilate(frame_opened,circle_kernel)
     frame_closed = cv2.erode(frame_closed,circle_kernel)   
     
+    # Задача 4
+    Moments = cv2.moments(frame_closed)
+    m01 = Moments['m01']/255 # Изображение не нормировано в [0;1], на деле [0;255]
+    m10 = Moments['m10']/255
+    area = Moments['m00']/255
+    
+    if(area>0):
+        posX = m10/area
+        posY = m01/area
+        
+
+    
     cv2.imshow("Red mask", frame_opened)
     cv2.imshow("Camera", frame)
     if cv2.waitKey(1) == ord('q'):
+        controls.window.destroy()
         break
 
 cap.release()
