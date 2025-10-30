@@ -10,13 +10,23 @@ class BoundsControls:
         # 101 кабинет: [0,100,176]; [109,255,255]
         self.window = None
 
-    
-
 
     def windowStart(self):
         self.window = tk.Tk()
         self.window.title("Bounds controls")
-        
+        self.textArea = tk.StringVar()
+        self.textPos = tk.StringVar()
+        self.window.minsize(250,100)
+        # Info labels
+        label1 = tk.Label(self.window,text = "Center position: ")
+        label1.pack(pady=2)
+        labelPos = tk.Label(self.window,textvariable=self.textPos)
+        labelPos.pack(pady=2)
+        labelPos
+        label2 = tk.Label(self.window,text = "Area: ")
+        label2.pack(pady=2)
+        labelArea = tk.Label(self.window,textvariable=self.textArea)
+        labelArea.pack(pady=2)
         # Hue low slider
         labelHL = tk.Label(self.window, text="Hue low")
         labelHL.pack(pady=2)
