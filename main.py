@@ -52,7 +52,7 @@ while cap.isOpened():
         if(len(contours)>0):
             cnt = contours[0]
             x,y,w,h = cv2.boundingRect(cnt)
-            cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,0),2)
 
     cv2.imshow("Red mask", frame_opened)
     cv2.imshow("Camera", frame)
